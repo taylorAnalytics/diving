@@ -1,0 +1,12 @@
+<div class="overflown">
+<nav class="leftBlock">
+	<ul>
+		<li><a href="diveshopprofile.php?page=show">Show profile</a></li>
+		<li><a href="diveshopprofile.php?page=edit">Edit profile</a></li>
+		<li><a href="diveshopprofile.php?page=offer">Show price offer</a></li>
+		<li><a href="diveshopprofile.php?page=editoffer">Edit price offer</a></li>
+		<li><a href="diveshopprofile.php?page=articles">Bookmarked articles</a></li>
+		<?php if ($shop->isAuthor()) echo '<li><a href="diveshopprofile.php?page=write">Write an article</a></li>
+		<li><a href="diveshopprofile.php?page=manage">Manage articles</a></li>'; ?>
+	</ul>
+</nav>

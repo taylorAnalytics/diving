@@ -1,0 +1,10 @@
+<div class="overflown">
+<nav class="leftBlock">
+	<ul>
+		<li><a href="diverprofile.php?page=show">Show profile</a></li>
+		<li><a href="diverprofile.php?page=edit">Edit profile</a></li>
+		<li><a href="diverprofile.php?page=articles">Bookmarked articles</a></li>
+		<?php if ($diver->isAuthor()) echo '<li><a href="diverprofile.php?page=write">Write an article</a></li>
+		<li><a href="diverprofile.php?page=manage">Manage articles</a></li>'; ?>
+	</ul>
+</nav>

@@ -1,0 +1,347 @@
+<section>
+<?php
+if (isset($_POST['userType']) && $_POST['userType'] == 'Diver') { $diveStick = TRUE;} else {$diveStick = FALSE;}
+if (isset($_POST['userType']) && $_POST['userType'] == 'Instructor') { $instStick = TRUE;} else { $instStick = FALSE;}
+if (isset($_POST['userType']) && $_POST['userType'] == 'DiveShop') {$shopStick = TRUE;} else {$shopStick = FALSE;}
+?>
+
+<ul class="tab">
+	<li><a href="javascript:void(0)" class="tablinks <?php if (!isset($_POST['userType']) || $_POST['userType'] == 'Diver') echo ' active';?>" onclick="openUserType(event, 'diver')">Diver</a></li>
+	<li><a href="javascript:void(0)" class="tablinks <?php if ($instStick) echo ' active';?>" onclick="openUserType(event, 'instructor')">Instructor</a></li>
+	<li><a href="javascript:void(0)" class="tablinks <?php if ($shopStick) echo ' active';?>" onclick="openUserType(event, 'shop')">Dive Shop</a></li>
+</ul>
+
+<!-- REGISTRATION FORM FOR A DIVER -->
+
+<div id="diver" class="tabcontent <?php if (!isset($_POST['userType']) || $_POST['userType'] == 'Diver') echo ' selected'; ?>">
+<table class="register">
+<caption class="header">Register as a diver</caption>
+<form action="register.php" method="post">
+<tr><td colspan="2">Registration details</td></tr>
+<tr><td class="rowLabel">Email address: </td><td class="left"><input type="email" name="email" <?php if($diveStick) echo "value=\"{$_POST['email']}\""; ?>/></td></tr>
+<tr><td class="rowLabel">Password: </td><td class="left"><input type="password" name="password1"/></td></tr>
+<tr><td class="rowLabel">Confirm password: </td><td class="left"><input type="password" name="password2"/></td></tr>
+<!-- Section with the personal information -->
+<tr><td colspan="2" class="centered">Personal information: </td></tr>
+<tr><td class="rowLabel">First name: </td><td class="left"><input type="text" name="firstName" <?php if($diveStick) echo "value=\"{$_POST['firstName']}\""; ?>/></td></tr>
+<tr><td class="rowLabel">Last name: </td><td class="left"><input type="text" name="lastName" <?php if($diveStick) echo "value=\"{$_POST['lastName']}\""; ?>/></td></tr>
+<tr><td class="rowLabel">Country: </td><td class="left">
+<select name="countryOfOrigin" style="width:175px">
+<option disabled selected value></option>
+<?php // Create the list of all the countries from the $countries array that had been specified in register.php
+foreach ($countries as $country) {
+	echo "<option value=\"$country\"";
+	if ($diveStick) {
+		if(isset($_POST['countryOfOrigin'])) {
+			if($country == $_POST['countryOfOrigin']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$country</option>";
+} ?>
+</select></td></tr>
+<tr><td class="rowLabel">Date of birth: </td><td class="left">
+<!-- Create the date of birth select menus - for day, month and year -->
+<select name="dayOfBirth">
+<option disabled selected value>DD</option>
+<?php // Create the drop down menu for the day of the month
+for ($i=1; $i<=31; $i++) {
+	echo "<option value=\"$i\"";
+	if ($diveStick) {
+		if (isset($_POST['dayOfBirth'])) {
+			if($i == $_POST['dayOfBirth']) {
+			echo ' selected';
+			}
+		}
+	}
+	echo ">$i</option>";
+}?></select>
+<select name="monthOfBirth">
+<option disabled selected value>MM</option>
+<?php // Create the drop down menu for the month
+foreach ($months as $i => $month) {
+	$i++;
+	echo "<option value=\"$i\"";
+	if ($diveStick) {
+		if (isset($_POST['monthOfBirth'])) {
+			if($i == $_POST['monthOfBirth']) {
+			echo ' selected';
+			}
+		}
+	}
+	echo ">$month</option>";
+}?></select>
+<select name="yearOfBirth">
+<option disabled selected value>YYYY</option>
+<?php // Create the drop down menu for the year
+for ($i=2016;$i>=1900;$i--) {
+	echo "<option value=\"$i\"";
+	if ($diveStick) {
+		if (isset($_POST['yearOfBirth'])) {
+			if($i == $_POST['yearOfBirth']) {
+			echo ' selected';
+			}
+		}
+	}
+	echo ">$i</option>";
+}?></select>
+</td></tr>
+<tr><td colspan="2" class="centered">Dive experience</td></tr>
+<tr><td class="rowLabel">Certification agency: </td><td class="left">
+<select name="certAgency">
+<option disabled selected value></option>
+<?php
+foreach ($certAgencies as $agency) {
+	echo "<option value=\"$agency\"";
+	if ($diveStick) {
+		if (isset($_POST['certAgency'])) {
+			if ($agency == $_POST['certAgency']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$agency</option>";
+}?>
+</select></td></tr>
+<tr><td class="rowLabel">Certification level: </td><td class = "left">
+<select name="certLevel">
+<option disabled selected value></option>
+<?php
+foreach ($certLevels as $certLevel) {
+	echo "<option value=\"$certLevel\"";
+	if ($diveStick) {
+		if (isset($_POST['certLevel'])) {
+			if ($certLevel == $_POST['certLevel']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$certLevel</option>";
+}?>
+</select>
+</td></tr>
+<tr><td class="rowLabel">Diving since: </td><td class="left"><select name="divingSince">
+<option disabled selected value></option>
+<?php
+for ($i = 2016; $i >= 1980; $i--) {
+	echo "<option value=$i";
+		if ($diveStick) {
+			if (isset($_POST['divingSince'])) {
+				if ($i == $_POST['divingSince']) {
+					echo ' selected';
+				}
+			}
+		}
+	echo ">$i</option>";
+}?></select></td></tr>
+<tr><td class="rowLabel">Number of dives: </td><td class="left"><input type="number" name="numberOfDives" <?php if ($diveStick) {echo "value = \"{$_POST['numberOfDives']}\"";} ?>></td></tr>
+<tr><td colspan="2" class="centered"><input type="submit" name="submit" value="Register"/></td></tr>
+<input type="hidden" name="userType" value="Diver"/>
+</form>
+</table>
+</div>
+
+<!-- REGISTRATION FORM FOR AN INSTRUCTOR -->
+
+<div id="instructor" class="tabcontent <?php if ($instStick) echo ' selected';?>">
+<table class="register">
+<caption class="header">Register as an instructor</caption>
+<form action="register.php" method="post">
+<tr><td colspan="2">Registration details</td></tr>
+<tr><td class="rowLabel">Email address: </td><td class="left"><input type="email" name="email" <?php if ($instStick) echo "value=\"{$_POST['email']}\""; ?> /></td></tr>
+<tr><td class="rowLabel">Password: </td><td class="left"><input type="password" name="password1"/></td></tr>
+<tr><td class="rowLabel">Confirm password: </td><td class="left"><input type="password" name="password2"/></td></tr>
+<!-- Section with the personal information -->
+<tr><td colspan="2" class="centered">Personal information: </td></tr>
+<tr><td class="rowLabel">First name: </td><td class="left"><input type="text" name="firstName" <?php if ($instStick) echo "value=\"{$_POST['firstName']}\""; ?>/></td></tr>
+<tr><td class="rowLabel">Last name: </td><td class="left"><input type="text" name="lastName" <?php if ($instStick) echo "value=\"{$_POST['lastName']}\""; ?>/></td></tr>
+<tr><td class="rowLabel">Country of origin: </td><td class="left">
+<select name="countryOfOrigin" style="width:175px">
+<option disabled selected value></option>
+<?php // Create the list of all the countries from the $countries array that had been specified in register.php
+foreach ($countries as $country) {
+	echo "<option value=\"$country\"";
+	if ($instStick) {
+		if (isset($_POST['countryOfOrigin'])) {
+			if ($country == $_POST['countryOfOrigin']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$country</option>";
+} ?>
+</select></td></tr>
+<tr><td class="rowLabel">Date of birth: </td><td class="left">
+<!-- Create the date of birth select menus - for day, month and year -->
+<select name="dayOfBirth">
+<option disabled selected value>DD</option>
+<?php // Create the drop down menu for the day of the month
+for ($i=1; $i<=31; $i++) {
+	echo "<option value=\"$i\"";
+	if ($instStick) {
+		if (isset($_POST['dayOfBirth'])) {
+			if ($i == $_POST['dayOfBirth']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$i</option>";
+}?></select>
+<select name="monthOfBirth">
+<option disabled selected value>MM</option>
+<?php // Create the drop down menu for the month
+foreach ($months as $i => $month) {
+	$i++;
+	echo "<option value=\"$i\"";
+	if ($instStick) {
+		if (isset($_POST['monthOfBirth'])) {
+			if ($i == $_POST['monthOfBirth']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$month</option>";
+}?></select>
+<select name="yearOfBirth">
+<option disabled selected value>YYYY</option>
+<?php // Create the drop down menu for the year
+for ($i=2016;$i>=1900;$i--) {
+	echo "<option value=\"$i\"";
+	if ($instStick) {
+		if (isset($_POST['yearOfBirth'])) {
+			if ($i == $_POST['yearOfBirth']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$i</option>";
+}?></select>
+</td></tr>
+<tr><td colspan="2" class="centered">Diving experience</td></tr>
+<tr><td class="rowLabel">Diving since: </td><td class="left"><select name="divingSince">
+<option disabled selected value></option>
+<?php
+for ($i = 2016; $i >= 1980; $i--) {
+	echo "<option value=$i";
+		if ($instStick) {
+			if (isset($_POST['divingSince'])) {
+				if ($i == $_POST['divingSince']) {
+					echo ' selected';
+				}
+			}
+		}
+	echo ">$i</option>";
+}?></select></td></tr>
+<tr><td class="rowLabel">Number of dives: </td><td class="left"><input type="number" name="numberOfDives" <?php if($instStick) echo "value=\"{$_POST['numberOfDives']}\""; ?>></td></tr>
+<tr><td colspan="2" class="centered">Instructor experience</td></tr>
+<tr><td class="rowLabel">Training agency: </td><td class="left">
+<select name="trainAgency">
+<option disabled selected value></option>
+<?php
+foreach ($certAgencies as $agency) {
+	echo "<option value=\"$agency\"";
+	if ($instStick) {
+		if (isset($_POST['trainAgency'])) {
+			if ($agency == $_POST['trainAgency']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$agency</option>";
+}?>
+</select></td></tr>
+<tr><td class="rowLabel">Instructor level: </td><td class = "left">
+<select name="instLevel">
+<option disabled selected value></option>
+<?php
+foreach ($instLevels as $instLevel) {
+	echo "<option value=\"$instLevel\"";
+	if ($instStick) {
+		if (isset($_POST['instLevel'])) {
+			if ($instLevel == $_POST['instLevel']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$instLevel</option>";
+}?>
+</select>
+</td></tr>
+<tr><td class="rowLabel">Teaching since: </td><td class="left"><select name="teachingSince">
+<option disabled selected value></option>
+<?php
+for ($i = 2016; $i >= 1980; $i--) {
+	echo "<option value=$i";
+	if ($instStick) {
+		if (isset($_POST['teachingSince'])) {
+			if ($i == $_POST['teachingSince']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$i</option>";
+}?></select></td></tr>
+<tr><td class="rowLabel">Number of certifications: </td><td class="left"><input type="number" name="numberOfCerts" <?php if ($instStick) echo "value=\"{$_POST['numberOfCerts']}\""; ?>></td></tr>
+<tr><td class="rowLabel">Country of residence: </td><td class="left">
+<select name="countryOfResidence" style="width:175px">
+<option disabled selected value></option>
+<?php // Create the list of all the countries from the $countries array that had been specified in register.php
+foreach ($countries as $country) {
+	echo "<option value=\"$country\"";
+		if ($instStick) {
+			if (isset($_POST['countryOfResidence'])) {
+				if ($country == $_POST['countryOfResidence']) {
+					echo ' selected';
+				}
+			}
+		}
+	echo ">$country</option>";
+} ?>
+</select></td></tr>
+<tr><td colspan="2" class="centered"><input type="submit" name="submit" value="Register"/></td></tr>
+<input type="hidden" name="userType" value="Instructor"/>
+</form>
+</table>
+</div>
+
+<!-- REGISTRATION FORM FOR A DIVE SHOP -->
+
+<div id="shop" class="tabcontent <?php if ($shopStick) echo ' selected';?>">
+
+<table class="register">
+<caption class="header">Register as a dive shop</caption>
+<form action="register.php" method="post">
+<tr><td colspan="2">Registration details</td></tr>
+<tr><td class="rowLabel">Email address: </td><td class="left"><input type="email" name="email" <?php if($shopStick) echo "value=\"{$_POST['email']}\""; ?>/></td></tr>
+<tr><td class="rowLabel">Password: </td><td class="left"><input type="password" name="password1"/></td></tr>
+<tr><td class="rowLabel">Confirm password: </td><td class="left"><input type="password" name="password2"/></td></tr>
+<!-- Section with the dive shop information -->
+<tr><td colspan="2" class="centered">Dive shop information: </td></tr>
+<tr><td class="rowLabel">Dive shop name: </td><td class="left"><input type="text" name="shopName" <?php if($shopStick) echo "value=\"{$_POST['shopName']}\""; ?>/></td></tr>
+<tr><td class="rowLabel">Website: </td><td class="left"><input type="url" name="shopWebsite" <?php if($shopStick) echo "value=\"{$_POST['shopWebsite']}\""; ?>/></td></tr>
+<tr><td class="rowLabel">Country: </td><td class="left">
+<select name="shopCountry" style="width:175px">
+<option disabled selected value></option>
+<?php // Create the list of all the countries from the $countries array that had been specified in register.php
+foreach ($countries as $country) {
+	echo "<option value=\"$country\"";
+	if ($shopStick) {
+		if (isset($_POST['shopCountry'])) {
+			if ($country == $_POST['shopCountry']) {
+				echo ' selected';
+			}
+		}
+	}
+	echo ">$country</option>";
+} ?>
+</select></td></tr>
+<tr><td class="rowLabel">Address: </td><td class="left"><textarea name="address" rows="3" cols="20"><?php if ($shopStick) echo "{$_POST['address']}"; ?></textarea></td></tr>
+<tr><td class="rowLabel">Zip Code: </td><td class="left"><input type="text" name="zipCode" <?php if ($shopStick) echo "value=\"{$_POST['zipCode']}\""; ?>/></td></tr>
+<tr><td colspan="2" class="centered"><input type="submit" name="submit" value="Register"/></td></tr>
+<input type="hidden" name="userType" value="DiveShop"/>
+</form>
+</table>
+</div>
+
+</section>

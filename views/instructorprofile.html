@@ -1,0 +1,10 @@
+<div class="overflown">
+<nav class="leftBlock">
+	<ul>
+		<li><a href="instructorprofile.php?page=show">Show profile</a></li>
+		<li><a href="instructorprofile.php?page=edit">Edit profile</a></li>
+		<li><a href="instructorprofile.php?page=articles">Bookmarked articles</a></li>
+		<?php if ($instructor->isAuthor()) echo '<li><a href="instructorprofile.php?page=write">Write an article</a></li>
+		<li><a href="instructorprofile.php?page=manage">Manage articles</a></li>'; ?>
+	</ul>
+</nav>

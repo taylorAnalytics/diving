@@ -1,0 +1,807 @@
+header {
+	padding: 10px;
+	text-align: center;
+	display:block;
+	margin-bottom:50px;
+}
+
+header h1 {
+	margin: 0;
+}
+
+header h1 span {
+	display:block;
+	font-style:italic;
+	font-size:60%;
+	text-transform:lowercase;
+}
+
+section.profile {
+	margin-left:20%;
+	width:60%;
+	margin-top:20px;
+	overflow:auto;
+	margin-bottom:20px;
+}
+section.profile div.title {
+	margin:10px 0 5px 5px;
+	border: 0.75px solid #DDDDDD;
+	background-color:#EEEEEE;
+	width:92%;
+	border-radius:10px;
+}
+
+section.profile div.article {
+	clear:left;
+	overflow:auto;
+	margin-bottom:20px;
+}
+div.image {
+	float:left;
+	max-height:100px;
+	overflow:hidden;
+	margin:5px 0;
+}
+div.image img {
+	height:90%;
+	max-height:90px;
+	padding:5px;
+}
+div.article div {
+	clear:left;
+	display:inline;
+}
+div.article h2, p {
+	margin:5px;
+}
+
+.overflown {
+	overflow: auto;
+}
+
+div {
+	clear:both;
+}
+
+div.centered {
+	text-align:center;
+}
+
+}
+
+/* Navigation */
+header nav {
+	float:right;
+	margin: 0 25px 0 0;
+}
+
+header nav ul {
+	margin: 10px 10px;
+	float:right;
+}
+header nav li {
+	display:inline;
+	list-style:none;
+	margin:10px 5px;
+	padding:5px;
+}
+
+header nav a {
+	text-decoration:none;
+	color:black;
+	border: solid white 1px;
+	margin: 10px 5px 10px 5px;
+	padding:5px;
+}
+
+header nav a:hover {
+	border: solid 1px;
+	border-color: #DDDDDD;
+	background-color:#DDDDDD;
+	border-radius: 10px;
+}
+
+nav.leftBlock {
+	float:left;
+	display:block;
+	width:200px;
+	margin:20px 0 0 15px;
+}
+
+nav.leftBlock ul {
+	overflow:hidden;
+	padding-left:10px;
+	margin:0;
+}
+nav.leftBlock li {
+	list-style:none;
+	padding:10px 0;
+}
+nav.leftBlock li a {
+	text-decoration:none;
+	color:black;
+	padding:10px 5px;
+}
+nav.leftBlock li a:hover {
+	border: solid 1px;
+	border-color:#DDDDDD;
+	background-color: #DDDDDD;
+	border-radius:10px;
+}
+
+
+/* Body */
+
+a {
+	text-decoration:none;
+}
+
+p {
+	
+}
+
+p.error {
+	text-align:center;
+	color:red;
+}
+
+div.main {
+	text-align:center;
+	height:100px;
+	vertical-align:middle;
+	line-height:100px;
+}
+
+/* Tabs for register.html */
+/* Style the list */
+ul.tab {
+	clear:both;
+	list-style-type:none;
+	margin: 0 auto;
+	padding: 0;
+	overflow:hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	width:400px;
+}
+/* Float the list items side by side */
+ul.tab li {
+	float:left;
+}
+/* Style the links inside the list items */
+ul.tab li a {
+	display:inline-block;
+	color:black;
+	text-align:center;
+	padding: 14px 16px;
+	text-decoration:none;
+	transition: 0.3s;
+	font-size: 17px;
+}
+/* Change the background-colors of links on hover */
+ul.tab li a:hover {
+	background-color: #ddd;
+}
+/*Create an active/current tablink class */
+ul.tab li a:focus, .active {
+	background-color:#ccc;
+}
+
+#active {
+	display:block;
+}
+
+
+/* Style the tabcontent */
+div.tabcontent {
+	display:none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top:none;
+	width:376px;
+	margin: 0 auto;
+}
+div.selected {
+	display:block;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top:none;
+	width:376px;
+	margin: 0 auto;
+}
+
+
+/* table formatting */
+table.register {
+	margin: 0 auto;
+}
+
+caption.header {
+	font-weight:bold;
+	margin:0 0 10px 0;
+}
+td.rowLabel {
+	text-align:left;
+}
+td.centered {
+	text-align:center;
+	font-weight:bold;
+}
+td.shadow {
+	background-color: #EEEEEE;
+}
+tr.shadow {
+	background-color: #EEEEEE;
+}
+tr.bottom {
+	border: 1px black;
+}
+td.left {
+	text-align:left;
+}
+table.profile {
+	margin: 20px 0 0 5px;
+	text-align: left;
+	width:50%;
+	clear:both;
+}
+table.profile td {
+	padding:0.25em;
+}
+table.profile a {
+	text-decoration:none;
+	color:black;
+	font-weight:normal;
+	background-color:#DDDDDD;
+	border:1px solid #AAAAAA;
+	padding:0.25em 1em;
+}
+table.profile a:hover {
+	text-decoration:none;
+	color:black;
+	font-weight:normal;
+	background-color:#EEEEEE;
+	border:1px solid blue;
+	padding:0.25em 1em;
+}
+table.profile a.normal {
+	border:none;
+	background-color: white;
+	padding:0;
+	
+}
+
+/* blog posts */
+section.container {
+	width:75%;
+	margin:0 auto;
+	text-align:center;
+	padding-top: 15px;
+}
+div.main-post {
+	display: block;
+	text-align:center;
+}
+
+div.main-post a {
+	text-decoration:none;
+	color:black;
+}
+section.post {
+	clear:both;
+	max-width:800px;
+	text-align:center;
+	margin:0 auto;
+}
+
+section.post h1 {
+	font-size:30px;
+}
+div.post {
+	text-align:left;
+}
+h2.left {
+	text-align:left;
+}
+form.left {
+	text-align:left;
+}
+div.image-full {
+	max-width:800px;
+	max-height:400px;
+	overflow:hidden;
+	text-align:center;
+	margin:0 auto;
+}
+span.helper {
+	height:100%;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+div.image-full img {
+	width:100%;
+	
+}
+div.image-half {
+	max-width:400px;
+	max-height:200px;
+	overflow:hidden;
+	text-align:center;
+	margin:0 auto;
+}
+div.image-half img {
+	width:100%;
+}
+div.half-post {
+	display: inline-block;
+	width:50%;
+	text-align: center;
+	margin:0 auto;
+	margin-bottom:50px;
+}
+
+div.half-post a {
+	text-decoration:none;
+	color:black;
+}
+div.post-header h2 {
+	
+}
+p.previous-post {
+	margin-top:10px;
+	float:left;
+	display:inline;
+}
+p.next-post {
+	margin-top:10px;
+	float:right;
+	display:inline;
+	
+}
+p.previous-post a, a:visited {
+	text-decoration:none;
+	color:black;
+	background-color:#EEEEEE;
+	padding:5px;
+}
+p.next-post a, a:visited {
+	text-decoration:none;
+	color:black;
+	background-color:#EEEEEE;
+	padding:5px;
+}
+div.comment {
+	text-align:left;
+	margin-bottom:20px;
+	border-bottom: 0.5px solid #CCCCCC;
+}
+div.comment p.content {
+	
+}
+div.comment p.date {
+	color: grey;
+	font-size:0.85em;
+}
+
+table.article-list {
+	border-collapse: collapse;
+	margin-top:20px;
+}
+
+table.article-list th td {
+	background-color: #DDDDDD;
+}
+
+tr.bottom {
+	border-bottom: 0.25px solid black;
+}
+td.date {
+	width:120px;
+	text-align:center;
+}
+td.status {
+	width:70px;
+	text-align:center;
+}
+td.edit {
+	padding:0.25em;
+	width: 50px;
+	text-align:center;
+}
+td.edit a {
+	text-decoration:none;
+	padding:0.15em 0.5em;
+}
+td.edit a:hover {
+	text-decoration:none;
+	background-color: #EEEEEE;
+	padding:0.15em 0.5em;
+	border-radius:10px;
+}
+
+td.edit a:visited {
+	color:black;
+}
+
+/* Gallery */
+section.gallery {
+	margin-left:220px;
+	margin-top:20px;
+	overflow:auto;
+	max-width:1024px;
+}
+section.gallery div.header h1 {
+	margin:0 auto;
+	text-align:center;
+}
+section.gallery div.third {
+	width:33%;
+	text-align:center;
+	display:inline-block;
+	vertical-align:top;
+	margin-bottom:30px;
+	margin-top:15px;
+}
+div.left div third {
+	width:33%;
+	text-align:center;
+	display:inline-block;
+	vertical-align:top;
+	margin-bottom:30px;
+	margin-top:15px;
+	
+}
+div.third p {
+	padding:5px 40px;
+}
+section.gallery div.title {
+	margin:10px 0 5px 5px;
+	border: 0.75px solid #DDDDDD;
+	background-color:#EEEEEE;
+	width:92%;
+	border-radius:10px;
+}
+div.title h3 {
+	margin:0;
+	padding:5px;
+}
+div.title p {
+	margin:0;
+	padding:5px;
+}
+div.title p.search {
+	float:right;
+	clear:right;
+}
+table.gallery-create {	
+	margin: 20px 0 0 5px;
+	text-align: left;
+	width:50%;
+}
+div.gallery-tile {
+	width:30%;
+	height:100px;
+	display:inline-block;
+	padding-top:10px;
+	border: 0.25px solid #DDDDDD;
+	margin:5px;
+	overflow:hidden;
+}
+div.gallery-tile div.image {
+	width:25%;
+	float:left;
+	margin:5px;
+}
+div.gallery-tile img {
+	width: 100%;
+}
+div.gallery-tile a {
+	text-decoration:none;
+	color:black;
+}
+div.gallery-tile a:visited {
+	color: black;
+}
+div.gallery-info {
+	display:inline;
+	overflow:hidden;
+}
+div.gallery-info h4, p{
+	margin:2.5px;
+	overflow:auto;
+}
+div.gallery-image p {
+	margin:2.5px;
+	overflow:auto;
+	font-size: 0.75em;
+}
+div.gallery-image p.hidden {
+	display:none;
+}
+div.gallery-image p.visible {
+	display: inline-block;
+	vertical-align:middle;
+}
+div.gallery-image p.center {
+	margin:0 auto;
+}
+div.gallery-info p.description {
+	font-size: 0.75em;
+	font-style: italic;
+	padding-top: 2.5px;
+	overflow:auto;
+}
+
+div.gallery-image {
+	width:20%;
+	display:inline-block;
+	margin:5px;
+	vertical-align:top;
+}
+div.gallery-image img {
+	width:100%;
+}
+input.hidden {
+	display:none;
+}
+input.visible {
+	display:inline-block;
+}
+
+input.centered {
+	margin:0 auto;
+}
+img.main {
+	width:100%;
+}
+section.image {
+	margin-left:20%;
+	margin-top:20px;
+	max-width:1024px;
+	overflow:auto;
+}
+
+section.image p.left {
+	float:left;
+	padding:5px;
+}
+section.image p.centered {
+	text-align:center;
+	padding:5px;
+}
+section.image p.right {
+	float:right;
+	padding:5px;
+}
+section.image a.button {
+	padding:10px;
+	text-decoration:none;
+	color:black;
+}
+a.button-2 {
+	float:left;
+	text-align:center;
+	padding:5px 15px;
+	margin: 10px 20px 10px 5px;
+	background-color:#EEEEEE;
+	border-radius:10px;
+	border:solid 1px;
+	border-color:#DDDDDD;
+	color:black;
+}
+a.button-3 {
+	display:inline-block;
+	text-align:center;
+	padding:5px 15px;
+	margin: 10px 20px 10px 5px;
+	background-color:#EEEEEE;
+	border-radius:10px;
+	border:solid 1px;
+	border-color:#DDDDDD;
+	color:black;
+	cursor:pointer;
+}
+
+section.image a.button:visited {
+	color:black;
+}
+section.image a.button-2:visited {
+	color:black;
+}
+section.image a.button:hover {
+	border: solid 1px;
+	border-color: #DDDDDD;
+	background-color:#DDDDDD;
+	border-radius: 10px;
+}
+div.gallery {
+	width:800px;
+	min-height:100px;
+	display:block;
+	border: 0.25px solid #DDDDDD;
+	margin:5px;
+	overflow:auto;
+}
+div.gallery div.center {
+	margin-top:5px;
+	width:30%;
+}
+div.gallery div.center h3 {
+	margin: 0;
+}
+div.gallery img {
+	height:90%;
+	max-height:90px;
+	padding:5px;
+	float:left;
+}
+div.gallery h3 {
+	margin:5px;
+}
+div.gallery p {
+	display:inline;
+	margin:0 10px 0 0;
+}
+div.gallery div {
+	display:inline-block;
+	margin-top:5px;
+}
+div.gallery a.button {
+	float:right;
+	clear:right;
+	width:130px;
+	text-align:center;
+	padding:5px 15px;
+	margin: 10px 20px 10px 0;
+	background-color:#DDDDDD;
+	border-radius:10px;
+	border:solid 1px;
+	border-color:#DDDDDD;
+
+}
+div.gallery div.right {
+	float:right;
+	clear:right;
+	width:50%;
+}
+div.gallery div.left {
+	float:left;
+	clear:left;
+	display:block;
+	overflow:auto;
+	margin:0 5px;
+}
+div.main-image {
+	height:90%;
+	max-height:90px;
+	padding:5px;
+	float:left;
+}
+/* Dive Trips */
+div.trip {
+	max-width:800px;
+	min-height:100px;
+	display:block;
+	border: 0.25px solid #DDDDDD;
+	margin:5px;
+	overflow:auto;
+	border-radius:10px;
+}
+
+div.trip h3, h2, h4 {
+	margin:5px;
+}
+div.trip p {
+	margin:5px;
+}
+div.trip a {
+	text-decoration:none;
+	color:black;
+}
+div.trip a:visited {
+	text-decoration:none;
+	color:black;
+}
+div.trip a.button {
+	float:right;
+	clear:right;
+	width:80px;
+	text-align:center;
+	padding:5px 15px;
+	margin: 10px 20px 10px 0;
+	background-color:#eeeeee;
+	border-radius:10px;
+	border:solid 1px;
+	border-color:#DDDDDD;
+}
+#o2level {
+	display:none;
+}
+table.dives {
+	border: 0.5px solid #DDDDDD;
+	border-collapse:collapse;
+	margin:10px;
+}
+table.dives th {
+	border: 0.5px solid #DDDDDD;
+	border-collapse:collapse;
+	padding:2.5px 10px;
+	text-align:center;
+}
+table.dives td {
+	border: 0.5px solid #DDDDDD;
+	border-collapse:collapse;
+	padding:2.5px 10px;
+	text-align:center;
+}
+table.dives tr {
+	border: 0.5px solid #DDDDDD;
+	border-collapse:collapse;
+	padding:2.5px 10px;
+	text-align:center;
+}
+table.dives a.button {
+	padding:2.5px 7px;
+	margin:0px;
+	width:auto;
+	cursor:pointer;
+}
+#hidden-dive {
+	display:none;
+}
+
+section.profile p.hidden {
+	clear:left;
+}
+#delete-dive {
+	display:none;
+}
+
+/* Dive shop search */
+section.search {
+	margin-top:20px;
+	overflow:auto;
+	margin-bottom:20px;
+	text-align:center;
+}
+table.result {
+	border-collapse:collapse;
+	border: 0.5px solid #DDDDDD;
+	margin: 0 auto;
+}
+table.result td, th {
+	border: 0.5px solid #DDDDDD;
+	text-align:center;
+	padding:2px 10px;
+}
+table.result th {
+	background-color: #EEEEEE;
+}
+table.result td a {
+	text-decoration:none;
+	color: black;
+}
+table.result td.a:visited{
+	text-decoration:none;
+	color:black;
+}
+
+div.trip table.result {
+	margin-left:10px;
+}
+
+/* Footer */
+footer {
+	clear:both;
+	display:block;
+	text-align:center;
+	
+}
+
+footer div {
+	clear:both;
+	display: block;
+	text-align:center;
+
+}
